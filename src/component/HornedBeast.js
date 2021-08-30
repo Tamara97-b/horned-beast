@@ -6,8 +6,8 @@ class HonerdBeast extends React.Component {
         <h2>{this.props.title}</h2>
         <img
           src={this.props.img}
-          alt={this.props.title}
-          title={this.props.imgTitle}
+          alt={this.props.description}
+          title={this.props.title}
         />
         <p>{this.props.describtion}</p>
       </div>

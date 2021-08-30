@@ -6,9 +6,9 @@ class App extends React.Component{
 render (){
   return (
     <>
-    <Header title= 'horned beast'/>
+    <Header />
     <Main/>
-    <Footer auther= 'tamara'/>
+    <Footer/>
     </>
   )
 }
