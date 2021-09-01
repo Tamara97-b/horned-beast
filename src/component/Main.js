@@ -18,6 +18,12 @@ class Main extends React.Component {
                   keyword={selectedBeastItem.keyword}
                   horns={selectedBeastItem.horns}
                   displayModal={this.props.displayModal}
+                  select>
+  <option value="grapefruit">Grapefruit</option>
+  <option value="lime">Lime</option>
+  <option selected value="coconut">Coconut</option>
+  <option value="mango">Mango</option>
+</select>
                 />
               
              ) })
