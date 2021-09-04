@@ -1,13 +1,13 @@
-import React from 'react';
+import React from "react";
 
 class Footer extends React.Component {
-    render() {
-        return (
-            <footer>
-                tamara bassam
-            </footer>
-        )
-    }
+  render() {
+    return (
+      <footer>
+        <h5>tamara bassam</h5>
+      </footer>
+    );
+  }
 }
 
 export default Footer;
