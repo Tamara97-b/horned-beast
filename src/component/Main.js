@@ -1,10 +1,22 @@
-import React from 'react';
-import HornedBeasts from './HornedBeasts';
-import Row from 'react-bootstrap/Row';
-
+import React from "react";
+import HornedBeasts from "./HornedBeasts";
 class Main extends React.Component {
-
   render() {
+
+    let arr = this.props.bests.map(horn => {
+      return (
+        <HornedBeasts
+          title={horn.title}
+          description={horn.description}
+          image_url={horn.image_url}
+          handleClose={this.props.handleClose}
+        />
+      );
+    });
+    return <main>{arr}</main>;
+  }
+}
+
     return (
       
         <main>
@@ -31,10 +43,5 @@ class Main extends React.Component {
 
         
 
-</main>
-  
-  )
-        }
-  
-      }
-      export default Main;
+
+export default Main;

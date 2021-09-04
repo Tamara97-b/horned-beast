@@ -1,47 +1,47 @@
-import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Header from './component/Header';
-import Main from './component/Main';
-import Footer from './component/footer';
-import HornedData from './component/HornedBeasts';
-import SelectedBeast from './component/SelectedBeast';
+import React from "react"; // we are adding the react library into our App component
+import Header from "./component/Header";
+import Main from "./component/Main";
+import Footer from "./component/footer";
+import "bootstrap/dist/css/bootstrap.min.css";
+import SelectedBeast from "./component/SelectedBeast";
+import data from './assets/data.json';
 
 class App extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
-      selectedBeast: HornedData,
-      showModel: false
-    }
+      show: false,
+      title: "",
+      description: "",
+      image_url: "",
+    };
   }
-  displayModal = (title) => {
-    const selectedBeast2 = HornedData.filter((item)  => { 
-      return (item.title === title);
+
+  handleClose = (title, description, image_url) => {
+    this.setState({
+      show: !this.state.show,
+
+      title: title,
+      description: description,
+      image_url: image_url,
     });
-    console.log(selectedBeast2);
-    this.setState({
-      showModel: true,
-      selectedBeast: selectedBeast2[0],
-    })
-  }
-  closeModal = () => {
-    this.setState({
-      showModel: false
-    })
-  }
+  };
   render() {
     return (
       <div>
         <Header />
-        <Main  HornedData={HornedData} displayModal={this.displayModal}  />
-        <SelectedBeast
-          selectedBeast={this.state.selectedBeast}
-          show={this.state.showModel}
-          close={this.closeModal}
-        />
+        <Main  bests={data} handleClose={this.handleClose} />
         <Footer />
+        <SelectedBeast
+          show={this.state.show}
+          handleClose={this.handleClose}
+          title={this.state.title}
+          description={this.state.description}
+          image_url={this.state.image_url}
+        />
       </div>
-    )
+    );
   }
 }
+
 export default App;
